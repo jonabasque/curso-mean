@@ -1,0 +1,24 @@
+{
+  "name": "ContaNode",
+  "version": "0.0.0",
+  "description": "Aplicación sencilla para contabilidad propia",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonabasque/curso-jsfull.git"
+  },
+  "author": "AskeTIC",
+  "license": "AGPL",
+  "bugs": {
+    "url": "https://github.com/jonabasque/curso-jsfull/issues"
+  },
+  "homepage": "https://github.com/jonabasque/curso-jsfull",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "express": "^4.10.6",
+    "mongodb": "^1.4.26"
+  }
+}
