@@ -1,43 +1,18 @@
+var utils = require('./utils/utils.js');
+var routes = require('./routes/routes.js');
 var express = require('express');
 var bodyParser = require('body-parser');
-var MongoClient = require('mongodb').MongoClient;
-var mongoDB = "mongodb://localhost:27017/ContaNode";
+
+utils.test('ready');
 
 var app = express();
-console.log('ready');
-
-app.route('/api/cartera')
-	.get(function (req, res){
-		MongoClient.connect(mongoDB, 
-			function(err, db){
-				if(err) tratarError(err, res);
-				var collection = db.collection('carteras');
-				collection.find().toArray( 
-					function(err, docs){
-						if(err) tratarError(err, res);
-						res.json(docs);
-
-				})
-			});
-	})
-	.post(function(req, res){
-		var doc = req.body;
-		MongoClient.connect(mongoDB, function(err, db){
-			if(err) tratarError(err, res);
-			var collection = db.collection('carteras');
-			collection.insert(doc, function(err, result){
-				if(err) tratarError(err, res);
-				res.status(200);
-			});
-		});
-	
-	})
-
-function tratarError(error, res){
-	console.log(error);
-	res.send(500, 'Error accediendo a datos');
-}
-
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/client'));
+
+app.use('/', routes.router);
+app.get('/test', function(req, res, next){
+	res.send('<h1>App Carteras de bolsillo</h1><p>Node.js y Express funcionan :D</p>');
+});
+
+utils.test('steady');
 app.listen(3000);	
