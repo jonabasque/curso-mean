@@ -1,0 +1,9 @@
+<section name="total">
+    <h1>{{ vm.titulo }}</h1>
+    <p class="lead">Lista de tus carteras</p>
+</section>
+<section name="listaCarteras" class="row-fluid">
+    <ul ng-repeat="p in vm.carteras">
+        <li>{{p.nombre}} - {{p.presupuesto}}</li>
+    </ul>
+</section>

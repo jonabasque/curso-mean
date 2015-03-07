@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="appTuCartera">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Creación de un nuevo proyecto en AppTuCuenta">
+    <meta name="author" content="Jon Esteban">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <title>{{ vm.titulo }}</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    //Menu de navegación
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="MenuCtrl as vm">
+        <div class="navbar-inner">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{ active: vm.isActive('/') }">
+                        <a href="#/">Inicio</a>
+                    </li>
+                    <li ng-class="{ active: vm.isActive('/carteras/nueva') }">
+                        <a href="/#/carteras/nueva">Nueva Cartera</a>
+                    </li>
+                    <li ng-class="{ active: vm.isActive('/carteras/lista') }">
+                        <a href="/#/carteras/lista">Lista de Carteras</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    //Container donde se mostrarán las vistas mediante ng-view
+    <div class="container text-center" style="padding-top:50px;" ng-view>
+    </div>
+    <!-- JavaScript References -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="_comun/MenuCtrl.js"></script>
+    <script src="inicio/InicioCtrl.js"></script>
+    <script src="proyectos/ProyectosCtrl.js"></script>
+    <script src="proyectos/proyectosFactory.js"></script>
+</body>

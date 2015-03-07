@@ -25,9 +25,8 @@ router.route('api/kutxas')
 		kutxas.postKutxa(doc, function(err, docs){
 			if(err){
 				util.tratarError(err, res);
-			}else{
-				res.status(200).json(doc);
 			}
+				res.status(200).json(doc);
 		})
 	})
 
